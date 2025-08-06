@@ -11,6 +11,8 @@ class Settings:
     PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX_NAME")
     PINECONE_HOST_NAME = os.getenv("PINECONE_HOST_NAME")
     GROQ_API_KEY=os.getenv("GROQ_API_KEY")
+    GROQ_API_KEY_1=os.getenv("GROQ_API_KEY_1")
+    GROQ_API_KEY_2=os.getenv("GROQ_API_KEY_2")
     # DATABASE_URL = os.getenv("DATABASE_URL")
     
     def validate(self):
