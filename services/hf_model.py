@@ -21,7 +21,7 @@ if not GROQ_API_KEYS:
 print(f"Initialized with {len(GROQ_API_KEYS)} API keys")
 
 # Use the model you specified
-PRIMARY_MODEL = "moonshotai/kimi-k2-instruct"
+PRIMARY_MODEL = "llama3-70b-8192"
 
 # Initialize clients for each API key
 clients = [Groq(api_key=key) for key in GROQ_API_KEYS]
