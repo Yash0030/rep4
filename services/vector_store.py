@@ -212,7 +212,7 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
  # The user's prompt. You can change this to test different inputs.
 user_prompt = "Explain the importance of low-latency LLMs in 100 words."
 completion = client.chat.completions.create(
-    model="llama3-70b-8192",
+    model="openai/gpt-oss-120b",
     messages=[
                 {
                     "role": "system",
