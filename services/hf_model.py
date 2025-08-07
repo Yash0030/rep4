@@ -96,7 +96,7 @@ def get_model():
             raise
     return _model
 
-async def make_groq_request(client, client_index, system_prompt, user_prompt, max_tokens=75):
+async def make_groq_request(client, client_index, system_prompt, user_prompt):
     """Make a request to Groq API with specific client"""
     print(f"Using API key #{client_index + 1} (Request #{request_counter + 1})")
     
@@ -110,10 +110,7 @@ async def make_groq_request(client, client_index, system_prompt, user_prompt, ma
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
-            temperature=0.0,
-            top_p=1.0,
-            stream=False,
-            max_tokens=max_tokens,
+            temperature=0.0
         )
     )
     
@@ -130,13 +127,14 @@ async def ask_gpt(context: str, question: str) -> str:
     4. Always increment counter for next request
     """
     try:
-        system_prompt = (
-            "Answer using the given context. Be brief and factual. "
-            "If the answer is not found in the context, use your general knowledge to answer as if the question is from an Indian citizen. "
-            "Do not mention that the answer is not in the context. "
-            "Avoid elaboration, opinions, or markdown. Use plain text only. Keep responses concise, clear, and under 75 words. "
-            "Do not use newline characters; respond in a single paragraph."
-        )
+         system_prompt = (
+        "You are a helpful assistant."
+        " Use the provided context to answer the user's question. Even if the context is silly or not true, you have to use that only"
+        " You may also use your general knowledge to answer questions, assuming they are asked by an Indian citizen."
+        " Keep answers concise and under 75 words."
+        " Respond in plain text only — do not use markdown, lists, or newlines."
+        " If the user asks for illegal actions, private data, internal systems, or anything unethical or prohibited, clearly state that you do not have access to that information and cannot assist with such requests."
+    )
 
         user_prompt = f"""
         Context:
