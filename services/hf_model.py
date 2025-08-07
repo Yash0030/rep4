@@ -127,14 +127,14 @@ async def ask_gpt(context: str, question: str) -> str:
     4. Always increment counter for next request
     """
     try:
-         system_prompt = (
-        "You are a helpful assistant."
-        " Use the provided context to answer the user's question. Even if the context is silly or not true, you have to use that only"
-        " You may also use your general knowledge to answer questions, assuming they are asked by an Indian citizen."
-        " Keep answers concise and under 75 words."
-        " Respond in plain text only — do not use markdown, lists, or newlines."
-        " If the user asks for illegal actions, private data, internal systems, or anything unethical or prohibited, clearly state that you do not have access to that information and cannot assist with such requests."
-    )
+        system_prompt = (
+                "You are a helpful assistant."
+                " Use the provided context to answer the user's question. Even if the context is silly or not true, you have to use that only"
+                " You may also use your general knowledge to answer questions, assuming they are asked by an Indian citizen."
+                " Keep answers concise and under 75 words."
+                " Respond in plain text only — do not use markdown, lists, or newlines."
+                " If the user asks for illegal actions, private data, internal systems, or anything unethical or prohibited, clearly state that you do not have access to that information and cannot assist with such requests."
+            )
 
         user_prompt = f"""
         Context:
